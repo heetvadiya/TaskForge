@@ -2,7 +2,7 @@
 
 TaskForge is an intuitive Agile Project Manager built using ASP.NET Core, following the MVC design pattern and utilizing MS SQL Server as the primary database. It serves as a lightweight solution to effectively track and manage tasks and projects within a growing software development environment.
 
-<img src="./Screenshots/Signup.jepg" alt="Sign up Page">
+![SignUp Page Screenshot](./Screenshots/Signup.jpeg)
 
 ## Key Features
 
