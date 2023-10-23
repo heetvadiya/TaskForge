@@ -1,0 +1,116 @@
+﻿@model BugTrackerWebApp.ViewModels.EnumerableViewModel<Project>
+
+<div class="row">
+  <div class="alert alert-success text-white font-weight-bold col-10 mt-3 pb-0" role="alert">
+    <strong class="text-center">This is a list of every project you have</strong>
+  </div>
+  <a asp-action="Create" class="btn btn-success mt-3 text-center col-1 ms-2">Add project</a>
+</div>
+
+<div class="card mt-2 shadow-success">
+  <div class="table-responsive mt">
+    <table class="table align-items-center mb-0">
+      <thead>
+        <tr>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Project</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Github</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Completion</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var item in Model.Collection)
+        {
+          <tr>
+            <td>
+              <div class="d-flex px-2">
+                <div class="my-auto ">
+                  <h6 class="mb-0 text-xs">@item.Name</h6>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="text-xs font-weight-normal mb-0">@item.GithubLink</p>
+            </td>
+            <td>
+              <p class="text-xs font-weight-normal mb-0">@item.Description</p>
+            </td>
+            <td>
+              <span class="badge badge-dot me-4">
+                <i class="bg-info"></i>
+                <span class="text-dark text-xs">working</span>
+              </span>
+            </td>
+            <td class="align-middle text-center">
+              <div class="d-flex align-items-center">
+                <span class="me-2 text-xs">60%</span>
+              </div>
+            </td>
+
+            <td class="align-middle">
+              <a asp-controller="Project" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-link text-secondary mb-0">
+                <i class="bi bi-trash text-danger text-1xl"></i>
+              </a>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <table class="table"> *@
+@*     <thead> *@
+@*     <tr> *@
+@*         <th class="text-center">#</th> *@
+@*         <th>Name</th> *@
+@*         <th>Description</th> *@
+@*         <th>Github link</th> *@
+@*         <th class="text-right">Actions</th> *@
+@*     </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*     @foreach (var item in Model.Collection) *@
+@*     { *@
+@*         <tr> *@
+@*             <td class="text-center">@(count++)</td> *@
+@*             <td>@item.Name</td> *@
+@*             <td>@item.Description</td> *@
+@*             <td>@item.GithubLink</td> *@
+@*             <td class="td-actions text-right"> *@
+@*                 <a type="button" rel="tooltip" class="btn btn-danger" asp-controller="Project" asp-action="Delete" asp-route-id="@item.Id"> *@
+@*                     <i class="material-icons">delete</i> *@
+@*                 </a> *@
+@*             </td> *@
+@*         </tr> *@
+@*     } *@
+@*     </tbody> *@
+@* </table> *@
+@* *@
+@* <a type="button" class="btn btn-primary btn-sm" asp-controller="Project" asp-action="Create"><span class="bi-plus-square-fill"></span>&nbsp;Add</a> *@

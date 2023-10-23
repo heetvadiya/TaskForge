@@ -1,0 +1,170 @@
+﻿@model BugTrackerWebApp.ViewModels.ViewModelBase
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - BugTrackerWebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/material-dashboard.css" asp-append-version="true">
+</head>
+<body class="bg-light">
+<header>
+
+    <nav class="navbar navbar-expand bg-gradient-success navbar-scroll shadow-blur">
+        <div class="container">
+            <div class="navbar bg-white rounded-pill" id="navbarExample01">
+                <ul class="navbar-nav ms-auto text-secondary mb-2 mb-lg-0">
+                    @* <li class="nav-item active"> *@
+                    @*     <a asp-controller="Home" asp-action="Index" class="nav-link link-secondary cursor-pointer" aria-current="page">Home</a> *@
+                    @* </li> *@
+                    <li class="nav-item">
+                        <a asp-controller="Project" asp-action="IndexForTrack" class="nav-link link-secondary cursor-pointer" aria-current="page">Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Project" asp-action="Index" class="nav-link link-secondary cursor-pointer" aria-current="page">Projects</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar bg-white rounded-pill" id="navbarExample01">
+                <ul class="navbar-nav ms-auto text-secondary mb-2 mb-lg-0">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Account" asp-action="Login" class="nav-link link-secondary cursor-pointer" aria-current="page">Sign in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Account" asp-action="Register" class="nav-link link-secondary cursor-pointer" aria-current="page">Sign up</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Account" asp-action="Logout" class="nav-link link-secondary cursor-pointer" aria-current="page">Log out</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    @* <nav class="navbar navbar-expand-lg bg-secondary p-2"> *@
+    @*     <div class="container"> *@
+    @*         <ul class="nav nav-pills nav-pills-success" role="tablist"> *@
+    @*             <li class="nav-item"> *@
+    @*                 <a class="nav-link active text-dark" data-toggle="tab" asp-controller="Home" asp-action="Index" role="tablist" aria-expanded="true"> *@
+    @*                     Home *@
+    @*                 </a> *@
+    @*             </li> *@
+    @*             <li class="nav-item"> *@
+    @*                 <a class="nav-link" data-toggle="tab" asp-controller="Project" asp-action="IndexForTrack" role="tablist" aria-expanded="false"> *@
+    @*                     Tasks *@
+    @*                 </a> *@
+    @*             </li> *@
+    @*             <li class="nav-item"> *@
+    @*                 <a class="nav-link" data-toggle="tab" asp-controller="Project" asp-action="Index" role="tablist" aria-expanded="false"> *@
+    @*                     Projects *@
+    @*                 </a> *@
+    @*             </li> *@
+    @*         </ul> *@
+    @*          *@
+    @*         <ul class="nav justify-content-center"> *@
+    @*             <li class="nav-item active"> *@
+    @*                 <a href="#" class="btn btn-success btn-lg disabled mb-0" role="button" aria-disabled="true">Bug Tracker</a> *@
+    @*             </li> *@
+    @*         </ul> *@
+    @*          *@
+    @*          *@
+    @*         <ul class="nav justify-content-end"> *@
+    @*             @if (User.Identity.IsAuthenticated) *@
+    @*             { *@
+    @*                 <li class="nav-item"> *@
+    @*                     <a type="button" asp-controller="Account" asp-action="Logout" class="btn btn-white text-success mb-0">Logout</a> *@
+    @*                 </li> *@
+    @*             } *@
+    @*             else *@
+    @*             { *@
+    @*                 <li class="nav-item" style="margin-right: 1rem"> *@
+    @*                     <a type="button" class="btn btn-white text-success mb-0" asp-controller="Account" asp-action="Login">Login</a> *@
+    @*                 </li> *@
+    @*                 <li class="nav-item"> *@
+    @*                     <a type="button" class="btn btn-white text-success mb-0" asp-controller="Account" asp-action="Register">Register</a> *@
+    @*                 </li> *@
+    @*             } *@
+    @*         </ul> *@
+    @*     </div> *@
+    @* </nav> *@
+
+
+    @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"> *@
+    @*     <div class="container-fluid"> *@
+    @*         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BugTrackerWebApp</a> *@
+    @*         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" *@
+    @*                 aria-expanded="false" aria-label="Toggle navigation"> *@
+    @*             <span class="navbar-toggler-icon"></span> *@
+    @*         </button> *@
+    @*         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between"> *@
+    @*             <ul class="navbar-nav flex-grow-1"> *@
+    @*                 <li class="nav-item"> *@
+    @*                     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a> *@
+    @*                 </li> *@
+    @*                 <li class="nav-item"> *@
+    @*                     <a class="nav-link text-dark" asp-area="" asp-controller="Project" asp-action="IndexForTrack">Trackables</a> *@
+    @*                 </li> *@
+    @*                 <li class="nav-item"> *@
+    @*                     <a class="nav-link text-dark" asp-area="" asp-controller="Project" asp-action="Index">Projects</a> *@
+    @*                 </li> *@
+    @*             </ul> *@
+    @*         </div> *@
+    @*         @if (User.Identity.IsAuthenticated) *@
+    @*         { *@
+    @*             <div class="rightMost" style="margin: 0 1rem"> *@
+    @*                 <a class="btn btn-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a> *@
+    @*             </div> *@
+    @*         } *@
+    @*         else *@
+    @*         { *@
+    @*             <div class="rightMost"> *@
+    @*                 <a class="btn btn-info" asp-area="" asp-controller="Account" asp-action="Login">Login</a> *@
+    @*                 <a class="btn btn-info" asp-area="" asp-controller="Account" asp-action="Register">Register</a> *@
+    @*             </div> *@
+    @*         } *@
+    @*         <div> *@
+    @*             @if (Model is null) *@
+    @*             { *@
+    @*                 <p>dasdsadsa</p> *@
+    @*             } *@
+    @*             else *@
+    @*             { *@
+    @*                 <p>@Model.UserName</p> *@
+    @*             } *@
+    @*         </div> *@
+    @* *@
+    @*     </div> *@
+    @* </nav> *@
+</header>
+
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<script src="~/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="~/js/core/popper.min.js" type="text/javascript"></script>
+<script src="~/js/material-dashboard.js" type="text/javascript"></script>
+<script src="~/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+
+@await RenderSectionAsync("Scripts", false)
+</body>
+</html>
